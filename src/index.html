@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин бытовой техники</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    Бытовая техника
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="d-flex ms-auto">
+                        <div class="btn-group" role="group">
+                            <a class="btn btn-outline-light" type="button" href="login.html">Войти</a>
+                            <a class="btn btn-warning" type="button" href="signup.html">Регистрация</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="vstack gap-3 p-3">
+        <div class="card">
+            <div class="row g-0">
+                <div class="col-md-4 text-center text-bg-secondary rounded-start">
+                    <i class="bi bi-camera" style="font-size: 5em;"></i>
+                    <p>Нет фото</p>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Заголовок новости 1</h5>
+                        <p class="card-text">Текст новости</p>
+                        <p class="card-text"><small class="text-muted">ID 666</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img class="img-fluid rounded-start" src="img/slide1.jpg" alt="image">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Заголовок новости 2</h5>
+                        <p class="card-text">Супермегабольшой текст новости очень длинннннннннннннная новость очень
+                            много интересной и полезной информации</p>
+                        <p class="card-text"><small class="text-muted">ID 666</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/bootstrap.js"></script>
+    <script type="module" src="./js/bootstrap-icons.js"></script>
+</body>
+
+</html>
