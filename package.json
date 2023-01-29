@@ -1,0 +1,30 @@
+{
+  "name": "java-lab567v-front",
+  "version": "0.0.1",
+  "description": "Frontend for labs 5, 6, 7",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite build && vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AquaUseful/java-lab567v-front.git"
+  },
+  "author": "AquaUseful",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AquaUseful/java-lab567v-front/issues"
+  },
+  "homepage": "https://github.com/AquaUseful/java-lab567v-front#readme",
+  "devDependencies": {
+    "sass": "^1.57.1",
+    "vite": "^4.0.4",
+    "vite-plugin-minify": "^1.5.2"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.3"
+  }
+}
