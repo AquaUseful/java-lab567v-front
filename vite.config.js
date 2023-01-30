@@ -7,7 +7,7 @@ export default defineConfig({
     resolve: {
         alias: {
             "~bootstrap": resolve(__dirname, "node_modules/bootstrap"),
-            "~bootstrap-icons": resolve(__dirname, "node_modules/bootstrap-icons")
+            "~bootstrap-icons": resolve(__dirname, "node_modules/bootstrap-icons"),
         }
     },
     build: {
@@ -16,7 +16,9 @@ export default defineConfig({
                 main: resolve(__dirname, "src/index.html"),
                 login: resolve(__dirname, "src/login.html"),
                 signup: resolve(__dirname, "src/signup.html"),
-                cabinet: resolve(__dirname, "src/profile.html")
+                cabinet: resolve(__dirname, "src/profile.html"),
+                orders: resolve(__dirname, "src/orders.html"),
+                adminpanel: resolve(__dirname, "src/adminpanel.html")
             }
         },
         outDir: "../dist",
