@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин бытовой техники</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Кабинет</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.html">Профиль</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Панель заказов</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <a href="logout.html"></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container my-3 w-75">
+        <h2>Список заказов</h2>
+        <div class="vstack gap-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <h2 class="card-title me-auto">Заказ №666</h2>
+                        <button class="btn btn-danger btn-sm">Удалить</button>
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <label for="address666" class="form-label fw-bold">
+                                Адрес доставки
+                            </label>
+                            <input class="form-control" type="text" id="address666" value="На деревню дедушке">
+                        </div>
+                        <div class="mb-3">
+                            <label for="comment666" class="form-label fw-bold">
+                                Комментарий
+                            </label>
+                            <textarea class="form-control" id="comment666" rows="5">
+                            </textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="file666" class="form-label fw-bold">Новый файл</label>
+                            <input class="form-control form-control-sm mb-1" type="file" id="file666">
+                            <div class="form-check">
+                                <label class="form-check-label" for="clearFile666">Удалить прикрепленный файл</label>
+                                <input class="form-check-input" type="checkbox" value="" id="clearFile666">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm">Сохранить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/bootstrap.js"></script>
+    <script type="module" src="./js/bootstrap-icons.js"></script>
+</body>
+
+</html>

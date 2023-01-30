@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин бытовой техники</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Кабинет</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.html">Профиль</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Админ-панель</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <a href="logout.html"></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container my-3 w-75">
+        <h2>Список заказов</h2>
+        <div class="vstack gap-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <h2 class="card-title me-auto">Заказ №666</h2>
+                        <div class="btn-group btn-group-sm" role="group">
+                            <a class="btn btn-success">Редактировать</a>
+                            <button class="btn btn-danger">Удалить</button>
+                        </div>
+                    </div>
+                    <h5 class="fw-bold mt-2">Адрес доставки</h5>
+                    <p>Улица Пушкина, дом Колотушкина</p>
+                    <h5 class="fw-bold mt-2">Комментарий к заказу</h5>
+                    <p>Тупо коммент бесполезный какой-то</p>
+                    <a class="btn btn-primary" type="button">Скачать прикрепленный файл</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <h2 class="card-title me-auto">Пользователь №<span>1337</span></h2>
+
+                        <a class="btn btn-success">Редактировать</a>
+                        <button class="btn btn-danger">Удалить</button>
+
+                    </div>
+                    <h5 class="fw-bold mt-2">Email</h5>
+                    <p>mail@server.org</p>
+
+                    <h5 class="fw-bold mt-2">Пароль</h5>
+                    <p>123456789</p>
+
+                    <h5 class="fw-bold mt-2">Email</h5>
+                    <p>mail@server.org</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/bootstrap.js"></script>
+    <script type="module" src="./js/bootstrap-icons.js"></script>
+</body>
+
+</html>
