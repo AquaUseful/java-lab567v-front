@@ -3,6 +3,8 @@ import { FormJson } from "./form/form.js";
 import { Token } from "./form/token.js";
 import { init_on_load } from "./utils/initializer.js";
 
+await Token.tokenGuard("profile.html", false);
+
 /**
  * @param {Response} response 
  */

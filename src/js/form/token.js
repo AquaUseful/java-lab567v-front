@@ -1,5 +1,8 @@
+import { HttpMethod, HttpResponse, fetchWithToken } from "./fetch.js";
+
 export class Token {
     static #localStorageKey = "JWTToken";
+    static #validationUrl = "/api/auth/validate";
 
     /**
      * @param {string} tokenType 
@@ -15,6 +18,16 @@ export class Token {
      */
     toString() {
         return `${this.tokenType} ${this.token}`;
+    }
+
+    async validate() {
+        const tokenString = this.toString();
+        const resp = await fetchWithToken(HttpMethod.GET,
+            Token.#validationUrl,
+            null,
+            null,
+            this);
+        return resp.status === HttpResponse.Ok;
     }
 
     /**
@@ -43,4 +56,19 @@ export class Token {
         localStorage.removeItem(Token.#localStorageKey);
     }
 
+    /**
+    * @param {string | URL} redirectUrl 
+    * @param {boolean} needToken
+    */
+    static async tokenGuard(redirectUrl, needToken) {
+        if (needToken) {
+            const token = Token.fromLocalStorage();
+            if ((token == null) || !(await token.validate())) {
+                Token.resetLocalStorage();
+                document.location.replace(redirectUrl);
+            }
+        } else if ((!needToken) && (Token.fromLocalStorage() != null)) {
+            document.location.replace(redirectUrl);
+        }
+    }
 }
