@@ -20,8 +20,7 @@ async function formCb(response) {
 
 async function main() {
     const formElement = document.getElementById("loginForm");
-    const form = new FormJson(formElement, formCb);
-    console.log(form);
+    const form = new FormJson(formElement, formCb, null);
 }
 
 init_on_load(main);
