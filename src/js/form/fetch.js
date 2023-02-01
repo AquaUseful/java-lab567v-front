@@ -25,13 +25,15 @@ export const HttpResponse = {
  * @param {Token} token 
  */
 export async function fetchWithToken(method, url, body, headers, token) {
-    const tokenString = token.toString();
-    if (headers == null) {
-        headers = {
-            "Authorization": tokenString
+    if (token != null) {
+        const tokenString = token.toString();
+        if (headers == null) {
+            headers = {
+                "Authorization": tokenString
+            }
+        } else {
+            headers["Authorization"] = tokenString;
         }
-    } else {
-        headers["Authorization"] = tokenString;
     }
     let response = await fetch(
         url,
@@ -71,4 +73,33 @@ export async function fetchFormDataJson(method, url, formData, token) {
     const formObject = Object.fromEntries(formData.entries());
     const response = await fetchJsonWithToken(method, url, formObject, token);
     return response;
+}
+
+/**
+ * @param {String} method 
+ * @param {URL | string} url 
+ * @param {FormData} formData 
+ * @param {Token} token 
+ * @returns 
+ */
+export async function fetchFormDataMultipart(method, url, formData, token) {
+    const response = await fetchWithToken(method, url, formData, null, token);
+    return response;
+}
+
+/**
+ * @param {string} method 
+ * @param {URL | string} url 
+ * @param {Token} token 
+ * @param {number} success
+ */
+export async function fetchBlob(method, url, token, success = HttpResponse.Ok) {
+    const response = await fetchWithToken(method, url, null, null, token);
+    if (response.status === success) {
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        return blobUrl;
+    } else {
+        return null;
+    }
 }
