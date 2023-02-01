@@ -22,18 +22,18 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="#">Профиль</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item d-none" id="userNavTab">
                             <a class="nav-link" href="orders.html">Панель заказов</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item d-none" id="adminNavTab">
                             <a class="nav-link" href="adminpanel.html">Админ-панель</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item d-none" id="editorNavTab">
                             <a class="nav-link" href="editor.html">Панель редактора</a>
                         </li>
                     </ul>
                     <div class="d-flex">
-                        <a href="logout.html"></a>
+                        <a type="button" class="btn btn-danger-outline" href="logout.html">Выйти</a>
                     </div>
                 </div>
             </div>
@@ -43,19 +43,22 @@
     <div class="container overflow-hidden my-5">
         <div class="row gx-5">
             <div class="col-md-4 d-flex flex-column justify-content-center">
-                <div class="text-center text-bg-secondary rounded p-3">
+                <img src="./img/slide1.jpg" class="img-fluid rounded img-thumbnail d-none" id="avatarImg">
+                <div class="text-center text-bg-secondary rounded p-3 d-none" id="avatarPlaceholder">
                     <i class="bi bi-camera" style="font-size: 5em;"></i>
                     <p>Нет фото</p>
+
                 </div>
             </div>
             <div class="col">
-                <h1 id="name">Имя пользователя</h1>
-                <p class="fw-bold">Email: <span class="fw-normal">mail@server.com</span></p>
-                <p class="fw-bold">Количество посещений: <span class="badge text-bg-info fw-normal">666</span></p>
-                <form>
+                <h1 id="userName">Имя пользователя</h1>
+                <p class="fw-bold">Email: <span class="fw-normal" id="userEmail">mail@server.com</span></p>
+                <p class="fw-bold">Количество посещений: <span class="badge text-bg-info fw-normal"
+                        id="userLoginCount">666</span></p>
+                <form method="post" action="/api/user/self/avatar" id="avatarForm">
                     <label for="avatarFile">Загрузить новый аватар</label>
                     <div class="d-flex m-2">
-                        <input id="avatarFile" type="file" class="form-control me-3">
+                        <input id="avatarFile" type="file" class="form-control me-3" name="file" required>
                         <button class="btn btn-primary" type="submit">Загрузить</button>
                     </div>
                 </form>
@@ -65,6 +68,7 @@
 
     <script type="module" src="./js/bootstrap.js"></script>
     <script type="module" src="./js/bootstrap-icons.js"></script>
+    <script type="module" src="./js/profile.js"></script>
 </body>
 
 </html>
