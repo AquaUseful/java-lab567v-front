@@ -11,20 +11,21 @@
 <body class="h-100 d-flex justify-content-center">
     <main class=" m-auto">
         <div class="w-100 mb-auto text-center">
-            <form>
+            <form id="signupForm" action="/api/auth/register" method="post">
                 <h1 class="h3 mb-3 fw-normal">
                     Регистрация
                 </h1>
                 <div class="form-floating mb-1">
-                    <input id="inputEmail" type="email" class="form-control" placeholder="Email" name="email">
+                    <input id="inputEmail" type="email" class="form-control" placeholder="Email" name="email" required>
                     <label for="inputEmail">Email</label>
                 </div>
                 <div class="form-floating mb-1">
-                    <input id="inputPassword" type="text" class="form-control" placeholder="Имя" name="name">
+                    <input id="inputPassword" type="text" class="form-control" placeholder="Имя" name="name" required>
                     <label for="inputPassword">Имя</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input id="inputPassword" type="password" class="form-control" placeholder="Пароль" name="password">
+                    <input id="inputPassword" type="password" class="form-control" placeholder="Пароль" name="password"
+                        required>
                     <label for="inputPassword">Пароль</label>
                 </div>
                 <button class="w-100 btn btn-lg btn-success mb-3" type="submit">Регистрация</button>
@@ -34,6 +35,7 @@
         </div>
     </main>
     <script type="module" src="./js/bootstrap.js"></script>
+    <script type="module" src="./js/signup.js"></script>
 </body>
 
 </html>
