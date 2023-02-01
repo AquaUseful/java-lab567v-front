@@ -1,7 +1,7 @@
 import { Token } from "./form/token";
 import { init_on_load } from "./utils/initializer";
 
-await Token.tokenGuard("login.html", true);
+Token.tokenGuard("login.html", true).then();
 
 async function main() {
 
