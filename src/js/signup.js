@@ -1,5 +1,6 @@
 import { HttpResponse } from "./form/fetch.js";
 import { FormJson } from "./form/form.js";
+import { Token } from "./form/token.js";
 import { init_on_load } from "./utils/initializer.js";
 
 /**
@@ -7,13 +8,14 @@ import { init_on_load } from "./utils/initializer.js";
  */
 async function formCb(response) {
     if (response.status === HttpResponse.Created) {
+        Token.resetLocalStorage();
         location.replace("login.html");
     }
 }
 
 async function main() {
     const formElement = document.getElementById("signupForm");
-    const form = new FormJson(formElement, formCb);
+    const form = new FormJson(formElement, formCb, null);
     console.log(form);
 }
 
