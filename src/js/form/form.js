@@ -1,7 +1,8 @@
 import { FormField } from "./form-field.js";
 import { Token } from "./token.js";
-import { HttpResponse, fetchFormDataJson } from "./fetch.js";
+import { HttpResponse, fetchFormDataJson, fetchFormDataMultipart } from "./fetch.js";
 import { displayNoneClass } from "../utils/constants.js";
+import { hideElement, showElement } from "../utils/utils.js";
 
 export class Form {
     /** @type {Element} */
@@ -16,6 +17,8 @@ export class Form {
     _url;
     /** @type {Function} */
     _callback;
+    /**@type {Token}*/
+    _token;
 
     static #fieldSelectors = "input, textarea";
     static #errorSelector = "#globalError";
@@ -25,7 +28,7 @@ export class Form {
      * @param {Element} element 
     * @param {Function} callback 
     */
-    constructor(element, callback) {
+    constructor(element, callback, token) {
         this._formElement = element;
         this._fields = new Map();
         element.querySelectorAll(Form.#fieldSelectors).forEach((element) => {
@@ -35,6 +38,7 @@ export class Form {
         this._method = this._formElement.getAttribute("method");
         this._url = this._formElement.getAttribute("action");
         this._callback = callback;
+        this._token = token;
         this.#setSubmitHandler();
     }
 
@@ -57,12 +61,16 @@ export class Form {
      * @param {string} error 
      */
     displayGlobalError(error) {
-        this._errorElement.innerHTML = error;
-        this._errorElement.classList.remove(displayNoneClass);
+        if (this._errorElement !== null) {
+            this._errorElement.innerHTML = error;
+            showElement(this._errorElement);
+        }
     }
 
     hideGlobalError() {
-        this._errorElement.classList.add(displayNoneClass);
+        if (this._errorElement !== null) {
+            hideElement(this._errorElement);
+        }
     }
 
     /**
@@ -83,7 +91,7 @@ export class Form {
         }
         if ("violations" in json) {
             json.violations.forEach(async (violation) => {
-                await this.displayViolation(violation);
+                this.displayViolation(violation);
             });
         }
     }
@@ -117,13 +125,13 @@ export class FormJson extends Form {
     * @param { Element } element
     * @param {Function} callback
     */
-    constructor(element, callback) {
-        super(element, callback);
+    constructor(element, callback, token) {
+        super(element, callback, token);
     }
 
     async _sendForm() {
         const formData = new FormData(this._formElement);
-        const resp = await fetchFormDataJson(this._method, this._url, formData, new Token("", ""));
+        const resp = await fetchFormDataJson(this._method, this._url, formData, this._token);
         return resp;
     }
 }
@@ -133,7 +141,13 @@ export class FormMultipart extends Form {
        * @param { Element } element
        * @param {Function} callback
        */
-    constructor(element, callback) {
-        super(element, callback);
+    constructor(element, callback, token) {
+        super(element, callback, token);
+    }
+
+    async _sendForm() {
+        const formData = new FormData(this._formElement);
+        const resp = await fetchFormDataMultipart(this._method, this._url, formData, this._token);
+        return resp;
     }
 }
