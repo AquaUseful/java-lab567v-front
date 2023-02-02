@@ -36,41 +36,60 @@
 
     <div class="container my-3 w-75">
         <h2>Список заказов</h2>
-        <div class="vstack gap-3">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-                        <h2 class="card-title me-auto">Заказ №666</h2>
-                        <div class="btn-group btn-group-sm" role="group">
-                            <a class="btn btn-success">Редактировать</a>
-                            <button class="btn btn-danger">Удалить</button>
-                        </div>
-                    </div>
-                    <h5 class="fw-bold mt-2">Адрес доставки</h5>
-                    <p>Улица Пушкина, дом Колотушкина</p>
-                    <h5 class="fw-bold mt-2">Комментарий к заказу</h5>
-                    <p>Тупо коммент бесполезный какой-то</p>
-                    <a class="btn btn-primary" type="button">Скачать прикрепленный файл</a>
+        <div class="vstack gap-3" id="userCardContainer">
+        </div>
+        <button type="button" class="btn btn-lg btn-primary m-3" data-bs-toggle="modal" data-bs-target="#addUserModal">
+            <i class="bi bi-person-fill-add"></i> Добавить пользователя
+        </button>
+    </div>
+
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-lg-down modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Создать пользователя</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-                        <h2 class="card-title me-auto">Пользователь №<span>1337</span></h2>
-
-                        <a class="btn btn-success">Редактировать</a>
-                        <button class="btn btn-danger">Удалить</button>
-
-                    </div>
-                    <h5 class="fw-bold mt-2">Email</h5>
-                    <p>mail@server.org</p>
-
-                    <h5 class="fw-bold mt-2">Пароль</h5>
-                    <p>123456789</p>
-
-                    <h5 class="fw-bold mt-2">Email</h5>
-                    <p>mail@server.org</p>
-
+                <div class="modal-body">
+                    <form method="post" action="/api/user" id="addUserForm" autocomplete="off">
+                        <div class="mb-3">
+                            <label for="addUserName" class="form-label fw-bold">
+                                Имя пользователя
+                            </label>
+                            <input class="form-control" type="text" id="addUserName" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="addUserEmail" class="form-label fw-bold">
+                                Email
+                            </label>
+                            <input class="form-control" type="text" id="addUserEmail" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="addUserPassword" class="form-label fw-bold">
+                                Пароль
+                            </label>
+                            <input class="form-control" type="text" id="addUserPassword" name="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <p class="fw-bold mb-0">Роль</p>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="role" id="userRoleUser" value="USER"
+                                    checked>
+                                <label for="userRoleUser">Пользователь</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="role" id="userRoleUser"
+                                    value="EDITOR">
+                                <label for="userRoleUser">Редактор</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="role" id="userRoleUser"
+                                    value="ADMIN">
+                                <label for="userRoleUser">Администратор</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm">Сохранить</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -78,6 +97,7 @@
 
     <script type="module" src="./js/bootstrap.js"></script>
     <script type="module" src="./js/bootstrap-icons.js"></script>
+    <script type="module" src="./js/adminpanel.js"></script>
 </body>
 
 </html>
