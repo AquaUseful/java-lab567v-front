@@ -22,7 +22,7 @@ export class Form {
 
     static #fieldSelectors = "input, textarea";
     static #errorSelector = "#globalError";
-    static #successResponses = [HttpResponse.Ok, HttpResponse.Created];
+    static #successResponses = [HttpResponse.Ok, HttpResponse.Created, HttpResponse.NoContent];
 
     /**
      * @param {Element} element 
