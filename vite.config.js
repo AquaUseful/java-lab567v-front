@@ -19,7 +19,8 @@ export default defineConfig({
                 cabinet: resolve(__dirname, "src/profile.html"),
                 orders: resolve(__dirname, "src/orders.html"),
                 adminpanel: resolve(__dirname, "src/adminpanel.html"),
-                logout: resolve(__dirname, "src/logout.html")
+                logout: resolve(__dirname, "src/logout.html"),
+                editor: resolve(__dirname, "src/editor.html")
             }
         },
         outDir: "../dist",
