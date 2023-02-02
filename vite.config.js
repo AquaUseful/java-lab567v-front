@@ -18,7 +18,8 @@ export default defineConfig({
                 signup: resolve(__dirname, "src/signup.html"),
                 cabinet: resolve(__dirname, "src/profile.html"),
                 orders: resolve(__dirname, "src/orders.html"),
-                adminpanel: resolve(__dirname, "src/adminpanel.html")
+                adminpanel: resolve(__dirname, "src/adminpanel.html"),
+                logout: resolve(__dirname, "src/logout.html")
             }
         },
         outDir: "../dist",
