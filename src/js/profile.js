@@ -29,6 +29,7 @@ async function updateProfile() {
             document.getElementById("userName").innerHTML = json.name;
             document.getElementById("userEmail").innerHTML = json.email;
             document.getElementById("userLoginCount").innerHTML = json.loginCount;
+            document.getElementById("userRole").innerHTML = json.role;
             const activeTabId = `${json.role.toLowerCase()}NavTab`;
             showElement(document.getElementById(activeTabId));
         }

@@ -50,18 +50,27 @@
 
                 </div>
             </div>
-            <div class="col">
-                <h1 id="userName">Имя пользователя</h1>
-                <p class="fw-bold">Email: <span class="fw-normal" id="userEmail">mail@server.com</span></p>
-                <p class="fw-bold">Количество посещений: <span class="badge text-bg-info fw-normal"
-                        id="userLoginCount">666</span></p>
+            <div class="col mx-3 my-5">
+                <div class="row mb-4">
+                    <h1 class="mb-3" id="userName"></h1>
+                    <p class="fw-bold">Email: <span class="fw-normal" id="userEmail">mail@server.com</span></p>
+                    <p class="fw-bold">Количество посещений: <span class="badge text-bg-info fw-normal"
+                            id="userLoginCount">666</span></p>
+                    <p class="fw-bold">Роль: <span class="badge text-bg-danger fw-normal" id="userRole"></span></p>
+                </div>
                 <form method="post" action="/api/user/self/avatar" id="avatarForm">
-                    <label for="avatarFile">Загрузить новый аватар</label>
-                    <div class="d-flex m-2">
-                        <input id="avatarFile" type="file" class="form-control me-3" name="file" required>
-                        <button class="btn btn-primary" type="submit">Загрузить</button>
+                    <div class="row">
+                        <label for="avatarFile" class="col-md-3 col-form-label fw-bold">Обновить аватар</label>
+                        <!--<div class="d-flex m-2">-->
+                        <div class="col col-md-6">
+                            <input id="avatarFile" type="file" class="form-control me-3" name="file" required>
+                        </div>
+                        <div class="col col-md-3">
+                            <button class="btn btn-primary" type="submit">Загрузить</button>
+                        </div>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
