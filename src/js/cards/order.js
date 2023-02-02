@@ -12,7 +12,7 @@ export function createOrderCard(order, callback, token) {
 <div class="d-flex align-items-center mb-3">
 <h2 class="card-title me-auto">Заказ №${order.id}</h2>
 <form method="delete" action="/api/order/${order.id}" id="deleteOrderForm${order.id}">
-<button type="submit" class="btn btn-danger btn-small">Удалить</button>
+<button type="submit" class="btn btn-danger btn-sm">Удалить</button>
 </form>
 </div>
 <form method="put" action="/api/order/${order.id}" id="orderForm${order.id}" autocomplete="off">

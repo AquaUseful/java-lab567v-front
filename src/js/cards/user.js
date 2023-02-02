@@ -12,7 +12,7 @@ export function createUserCard(user, callback, token) {
 <div class="d-flex align-items-center mb-3">
 <h2 class="card-title me-auto">Пользователь №${user.id}</h2>
 <form method="delete" action="/api/user/${user.id}" id="deleteUserForm${user.id}">
-<button type="submit" class="btn btn-danger btn-small">Удалить</button>
+<button type="submit" class="btn btn-danger btn-sm">Удалить</button>
 </form>
 </div>
 <form method="put" action="/api/user/${user.id}" id="userForm${user.id}" autocomplete="off">
