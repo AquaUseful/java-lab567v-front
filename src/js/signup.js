@@ -7,10 +7,8 @@ import { init_on_load } from "./utils/initializer.js";
  * @param {Response} response 
  */
 async function formCb(response) {
-    if (response.status === HttpResponse.Created) {
-        Token.resetLocalStorage();
-        location.replace("login.html");
-    }
+    Token.resetLocalStorage();
+    location.replace("login.html");
 }
 
 async function main() {

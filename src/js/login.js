@@ -9,13 +9,11 @@ Token.tokenGuard("profile.html", false).then();
  * @param {Response} response 
  */
 async function formCb(response) {
-    if (response.status === HttpResponse.Ok) {
-        const json = await response.json();
-        const token = new Token(json.tokenType, json.token);
-        console.log(token)
-        Token.toLocalStorage(token);
-        location.replace("profile.html");
-    }
+    const json = await response.json();
+    const token = new Token(json.tokenType, json.token);
+    console.log(token)
+    Token.toLocalStorage(token);
+    location.replace("profile.html");
 }
 
 async function main() {
