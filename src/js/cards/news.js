@@ -5,12 +5,12 @@ import { HttpMethod } from "../form/fetch.js";
 export async function createNewsPictureHtml(news, token) {
     const pictureLocalUrl = await fetchBlob(HttpMethod.GET, `/api/news/${news.id}/picture`, token);
     if (pictureLocalUrl == null) {
-        return `<div class="text-center text-bg-secondary rounded p-3 w-100" id="picturePlaceholder">
+        return `<div class="text-center text-bg-secondary rounded p-3 w-100">
 <i class="bi bi-camera" style="font-size: 5em;"></i>
 <p>Нет фото</p>
 </div>`
     } else {
-        return `<img class="img-fluid img-thumbnail rounded" src="${pictureLocalUrl}">`
+        return `<img class="img-fluid rounded" src="${pictureLocalUrl}">`
     }
 }
 
@@ -66,5 +66,23 @@ ${pictureHtml}
     const form = new FormMultipart(formElement, callback, token);
     const deleteFormElement = cardElement.querySelector(`#deleteNewsForm${news.id}`);
     const deleteForm = new FormJson(deleteFormElement, callback, token);
+    return cardElement;
+}
+
+export async function createIndexNewsCard(news, token) {
+    const pictureHtml = await createNewsPictureHtml(news, token);
+    const cardElement = document.createElement("div");
+    cardElement.classList.add("card");
+    cardElement.innerHTML = `<div class="row g-0">
+<div class="col-md-4">
+${pictureHtml}
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<h2 class="card-title fw-bold mb-4">${news.title}</h2>
+<p class="card-text mb-auto">${news.content}</p>
+</div>
+</div>
+</div>`;
     return cardElement;
 }
