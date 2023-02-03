@@ -36,42 +36,10 @@
 
     <div class="container my-3 w-75">
         <h2>Список новостей</h2>
-        <div class="vstack gap-3" id="orderCardContainer">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <h2 class="card-title me-auto">Новость №${order.id}</h2>
-                        <form method="delete" action="/api/news/${order.id}" id="deleteNewsForm${order.id}">
-                            <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
-                        </form>
-                    </div>
-                    <form method="patch" action="/api/news/${order.id}" id="newsForm${order.id}" autocomplete="off">
-                        <div class="mb-3">
-                            <label for="newsTitle${order.id}" class="form-label fw-bold">Заголовок новости</label>
-                            <input class="form-control" type="text" id="newsTitle${order.id}" name="product" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="newsContent${order.id}" class="form-label fw-bold">Текст новости</label>
-                            <textarea class="form-control" id="newsContent${order.id}" rows="5" name="comment"
-                                required>${comment}</textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="newsPicture" class="fw-bold">Изображение новости</label>
-                            <input id="newsPicture" type="file" class="form-control" name="picture">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="newsRemovePicture"
-                                    name="removePicture">
-                                <label for="newsRemovePicture" class="form-check-label">Удалить изображение новости
-                                    <span class="text-muted"></label>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-sm">Сохранить</button>
-                    </form>
-                </div>
-            </div>
+        <div class="vstack gap-3" id="newsCardContainer">
         </div>
         <button type="button" class="btn btn-lg btn-primary m-3" data-bs-toggle="modal" data-bs-target="#addOrderModal">
-            <i class="bi bi-plus-square-fill"></i> Добавить заказ
+            <i class="bi bi-plus-square-fill"></i> Добавить новость
         </button>
     </div>
 
@@ -79,10 +47,32 @@
         <div class="modal-dialog modal-dialog-centered modal-fullscreen-lg-down modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Создать заказ</h5>
+                    <h5 class="modal-title">Создать новость</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <form id="addNewsForm" action="/api/news" method="post">
+                        <div class="mb-3">
+                            <label for="addNewsTitle" class="form-label fw-bold">Заголовок новости</label>
+                            <input class="form-control" id="addNewsTitle" type="text" name="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="addNewsContent" class="form-label fw-bold">Содержание новости</label>
+                            <textarea class="form-control" name="content" id="addNewsContent" rows="7"
+                                required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <div class="row">
+                                <label for="addNewsPicture" class="col-md-3 col-form-label fw-bold">
+                                    Изображение новости
+                                </label>
+                                <div class="col col-md-9">
+                                    <input class="form-control" name="picture" id="addNewsPicture" type="file">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm">Сохранить</button>
+                    </form>
                 </div>
             </div>
         </div>
