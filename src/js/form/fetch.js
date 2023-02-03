@@ -25,15 +25,16 @@ export const HttpResponse = {
  * @param {Token} token 
  */
 export async function fetchWithToken(method, url, body, headers, token) {
-    if (token != null) {
-        const tokenString = token.toString();
-        if (headers == null) {
+    if (headers === null) {
+        if (token !== null) {
             headers = {
-                "Authorization": tokenString
-            }
+                "Authorization": token.toString()
+            };
         } else {
-            headers["Authorization"] = tokenString;
+            headers = new Object();
         }
+    } else if (token !== null) {
+        headers["Authorization"] = token.toString();
     }
     let response = await fetch(
         url,
